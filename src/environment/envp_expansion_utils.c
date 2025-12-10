@@ -4,7 +4,7 @@ t_env_hash	*create_temp_hash_for_expansion(char **envp)
 {
 	t_env_hash	*hash;
 	t_env_entry	*entry;
-	int			i;
+	size_t		i;
 
 	hash = malloc(sizeof(t_env_hash));
 	if (!hash)
@@ -29,25 +29,28 @@ t_env_hash	*create_temp_hash_for_expansion(char **envp)
 
 int	count_digits(int n)
 {
-	int	count;
+	unsigned int	count;
+	unsigned int	num;
 
 	if (n == 0)
 		return (1);
 	count = 0;
 	if (n < 0)
 	{
-		n = -n;
+		num = -n;
 		count = 1;
 	}
-	while (n > 0)
+	else
+		num = n;
+	while (num > 0)
 	{
 		count++;
-		n /= 10;
+		num /= 10;
 	}
 	return (count);
 }
 
-int	extract_var_bounds(char *input, int pos, int *start, int *end)
+int	extract_var_bounds(char *input, size_t pos, size_t *start, size_t *end)
 {
 	*start = pos + 1;
 	*end = *start;

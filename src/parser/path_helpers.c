@@ -1,9 +1,9 @@
 #include "../inc/main.h"
 
-static char	*build_path_helper(char *full_path, char **paths, \
-				char *cmd, int i)
+static char	*build_path_helper(char *full_path, char **paths,
+				char *cmd, size_t i)
 {
-	int		j;
+	size_t	j;
 	char	*tmp;
 
 	j = 0;
@@ -26,7 +26,7 @@ static char	*build_path_helper(char *full_path, char **paths, \
 
 static char	*build_path(char *full_path, char **paths, char *cmd)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (paths[i])

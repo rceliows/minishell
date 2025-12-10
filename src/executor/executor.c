@@ -30,7 +30,7 @@ static void	create_pipeline_processes(t_interpreter *it,
 			t_env_hash *env_hash, t_cleanup_data *cleanup)
 {
 	struct s_fd	fd;
-	int			i;
+	size_t		i;
 
 	fd.in_fd = 0;
 	i = 0;

@@ -32,7 +32,7 @@ char	*read_word(const char *s, size_t *i,
 		return (NULL);
 	while (s[*i] && !is_word_delimiter(s[*i]))
 		buf = compute_expansion(&var, buf, &len, &cap);
-	if (! buf)
+	if (!buf)
 		return (NULL);
 	buf[len] = '\0';
 	return (buf);

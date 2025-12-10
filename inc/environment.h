@@ -25,7 +25,7 @@ typedef struct s_env_hash
 	int				count;
 }	t_env_hash;
 
-/* Enviorment expansion structure */
+/* Environment expansion structure */
 typedef struct s_expand_context
 {
 	char		*input;
@@ -53,9 +53,9 @@ void			cleanup_hash_table(t_env_hash *envp);
 t_env_entry		*create_new_env_entry(t_env_entry *var);
 t_env_entry		*create_new_env_entry_direct(char *name, char *value);
 void			add_to_bucket(t_env_hash *envp, t_env_entry *new_entry,
-					int placement);
+					unsigned int placement);
 t_env_entry		*find_entry_to_remove(t_env_hash *env_hash,
-					char *name, int placement, t_env_entry **prev);
+					char *name, unsigned int placement, t_env_entry **prev);
 
 /* Convert between envp array and hash table */
 t_env_hash		*copy_envp(char **envp);
@@ -76,14 +76,16 @@ char			*expand_environment_variables(char *input,
 					char **envp);
 char			*expand_environment_variables_with_exit_code(char *input,
 					char **envp, int exit_code);
-int				extract_var_bounds(char *input, int pos, int *start, int *end);
-int				calc_var_len(t_expand_context *ctx, int pos, int *new_pos);
-int				calc_total_len(t_expand_context *ctx);
+int				extract_var_bounds(char *input, size_t pos,
+					size_t *start, size_t *end);
+size_t			calc_var_len(t_expand_context *ctx, size_t pos,
+					size_t *new_pos);
+size_t			calc_total_len(t_expand_context *ctx);
 
 /* Environment expansion utilities */
 int				count_digits(int n);
 t_env_hash		*create_temp_hash_for_expansion(char **envp);
-int				advance_var(t_expand_context *ctx, int i);
+size_t			advance_var(t_expand_context *ctx, size_t i);
 char			*exit_code_str(int exit_code);
 void			update_quote_state(char c, t_expand_context *ctx);
 

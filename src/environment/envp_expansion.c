@@ -1,18 +1,21 @@
 #include "../inc/main.h"
 
-static void	process_var_value(char *val, char *out, int *out_pos)
+static void	process_var_value(char *val, char *out, size_t *out_pos)
 {
+	size_t	val_len;
+
 	if (val)
 	{
+		val_len = ft_strlen(val);
 		ft_strcpy(out + *out_pos, val);
-		*out_pos += ft_strlen(val);
+		*out_pos += val_len;
 	}
 }
 
-static void	expand_var(t_expand_context *ctx, int pos, char *out, int *out_pos)
+static void	expand_var(t_expand_context *ctx, size_t pos, char *out, size_t *out_pos)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*var_name;
 	char	*val;
 
@@ -39,8 +42,8 @@ static void	expand_var(t_expand_context *ctx, int pos, char *out, int *out_pos)
 
 static void	perform_expansion(t_expand_context *ctx, char *out)
 {
-	int	i;
-	int	out_pos;
+	size_t	i;
+	size_t	out_pos;
 
 	i = 0;
 	out_pos = 0;
@@ -68,7 +71,7 @@ char	*expand_environment_variables_hash(char *input,
 {
 	t_expand_context	ctx;
 	char				*result;
-	int					len;
+	size_t				len;
 
 	if (!input)
 		return (NULL);

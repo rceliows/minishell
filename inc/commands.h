@@ -34,7 +34,7 @@ void	restore_standard_fds(int orig_stdin, int orig_stdout,
 			int input_fd, int output_fd);
 int		get_output_flags(t_parse_result *parsed);
 
-/* Shell script execution utilitie*/
+/* Shell script execution utilities */
 int		run_as_shell_script(char *path, char **args, char **env);
 int		heredoc_read(t_interpreter *it, t_cleanup_data *cleanup, int expand);
 

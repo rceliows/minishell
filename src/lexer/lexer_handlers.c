@@ -3,7 +3,7 @@
 static char	*update_buffer_size(char *buf, size_t *cap, size_t required_len)
 {
 	char	*new_buf;
-	int		old_cap;
+	size_t	old_cap;
 
 	while (required_len >= *cap)
 	{
@@ -62,7 +62,7 @@ int	handle_variable_expansion(t_variable *var, char **buf,
 {
 	char	*expanded;
 
-	expanded = expand_single_variable(var->s, var->i, \
+	expanded = expand_single_variable(var->s, var->i,
 				var->env_hash, var->exit_code);
 	if (expanded)
 	{

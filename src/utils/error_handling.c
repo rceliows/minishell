@@ -3,8 +3,8 @@
 void	write_atomic_error(const char *prefix,
 			const char *msg, const char *suffix)
 {
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
 	char	buffer[1024];
 
 	len = 0;

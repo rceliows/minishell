@@ -13,8 +13,8 @@ void	cleanup_entry_on_error(t_env_entry *entry)
 
 void	envp_add_last(t_env_hash *envp, t_env_entry *var)
 {
-	int			placement;
-	t_env_entry	*new_entry;
+	unsigned int	placement;
+	t_env_entry		*new_entry;
 
 	if (!envp || !var || !var->name)
 		return ;

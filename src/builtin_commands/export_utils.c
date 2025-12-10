@@ -13,7 +13,7 @@ void	print_export_entry(t_env_entry *entry)
 void	print_export_format(t_env_hash *env_hash)
 {
 	t_env_entry	*current;
-	int			i;
+	size_t		i;
 
 	if (!env_hash)
 		return ;
@@ -32,7 +32,7 @@ void	print_export_format(t_env_hash *env_hash)
 
 int	is_valid_identifier(char *name)
 {
-	int	i;
+	size_t	i;
 
 	if (!name || !*name)
 		return (0);

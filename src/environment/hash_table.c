@@ -12,10 +12,10 @@ static int	update_existing_variable(t_env_entry *current, char *value)
 }
 
 static int	find_and_update_variable(t_env_hash *env_hash, char *name,
-			char *value, int placement)
+			char *value, unsigned int placement)
 {
 	t_env_entry	*current;
-	int			name_len;
+	size_t		name_len;
 
 	name_len = ft_strlen(name);
 	current = env_hash->buckets[placement];
@@ -31,8 +31,8 @@ static int	find_and_update_variable(t_env_hash *env_hash, char *name,
 
 int	set_env_variable(t_env_hash *env_hash, char *name, char *value)
 {
-	t_env_entry	*new_entry;
-	int			placement;
+	t_env_entry		*new_entry;
+	unsigned int	placement;
 
 	if (!env_hash || !name)
 		return (0);
@@ -50,9 +50,9 @@ int	set_env_variable(t_env_hash *env_hash, char *name, char *value)
 
 char	*get_env_variable(t_env_hash *env_hash, char *name)
 {
-	t_env_entry	*current;
-	int			placement;
-	int			name_len;
+	t_env_entry		*current;
+	unsigned int	placement;
+	size_t			name_len;
 
 	if (!env_hash || !name)
 		return (NULL);
@@ -71,7 +71,7 @@ char	*get_env_variable(t_env_hash *env_hash, char *name)
 
 void	init_hash_table(t_env_hash *envp)
 {
-	int	i;
+	size_t	i;
 
 	if (!envp)
 		return ;

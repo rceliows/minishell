@@ -45,7 +45,7 @@ char	*expand_single_variable(const char *s, size_t *i,
 	return (parse_dollar(s, start, i, env_hash));
 }
 
-static	char	*compute_quoted(t_variable *var, char **buf,
+static char	*compute_quoted(t_variable *var, char **buf,
 				size_t *len, size_t *cap)
 {
 	if (!handle_quoted_content(var, buf, len, cap))
@@ -56,7 +56,7 @@ static	char	*compute_quoted(t_variable *var, char **buf,
 	return (*buf);
 }
 
-static	char	*compute_variable_expansion(t_variable *var, char **buf,
+static char	*compute_variable_expansion(t_variable *var, char **buf,
 				size_t *len, size_t *cap)
 {
 	if (!handle_variable_expansion(var, buf, len, cap))

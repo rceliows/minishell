@@ -18,7 +18,7 @@ static void	cleanup_bucket(t_env_entry *current)
 
 void	cleanup_hash_table(t_env_hash *envp)
 {
-	int	i;
+	size_t	i;
 
 	if (!envp)
 		return ;
@@ -35,7 +35,7 @@ void	cleanup_hash_table(t_env_hash *envp)
 unsigned int	hash_placement(char *name)
 {
 	unsigned int	hash;
-	int				i;
+	size_t			i;
 
 	hash = 0;
 	i = 0;

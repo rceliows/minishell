@@ -72,7 +72,7 @@ void			init_result_fields(t_parse_result *parsed);
 void			skip_leading_whitespace(char *input, int *pos);
 t_cmd			*parse_error_cleanup(t_cmd *head);
 
-/* Parser commands*/
+/* Parser commands */
 t_cmd			*parse_commands(t_token *tokens);
 
 /* Redirection utilities */

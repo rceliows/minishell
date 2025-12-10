@@ -39,8 +39,8 @@ static int	process_single_export_arg(char *arg, t_env_hash *envp)
 
 int	builtin_export(char **args, t_env_hash *envp, int *exit_code)
 {
-	int	i;
-	int	success;
+	size_t	i;
+	int		success;
 
 	if (!args[1])
 	{

@@ -28,7 +28,7 @@ static void	free_redirections(t_redir *r)
 
 static void	free_argv_array(char **argv)
 {
-	int	i;
+	size_t	i;
 
 	if (argv)
 	{

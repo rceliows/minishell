@@ -24,7 +24,7 @@ static void	build_user_host(char *prompt, char *user, char *hostname)
 
 static void	build_directory_path(char *prompt, char *cwd, char *home)
 {
-	int	home_len;
+	size_t	home_len;
 
 	if (home && *home)
 	{

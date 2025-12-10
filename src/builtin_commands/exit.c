@@ -1,11 +1,25 @@
 #include "../inc/main.h"
 
+static int	process_exit_code(char *code)
+{
+	long	n;
+
+	n = ft_atol(code);
+	if (n == LONG_MAX || n == LONG_MIN)
+	{
+		write_atomic_error("exit\nminishell: exit: ", args[1],
+			": numeric argument required\n");
+		return (n % 256);
+	}
+	return (n);
+}
+
 static int	is_numeric_string(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if(!str)
+	if (!str)
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -43,7 +57,7 @@ int	execute_exit(char **args, int *exit_code, t_cleanup_data *cleanup)
 	}
 	if (is_numeric_string(args[1]))
 	{
-		*exit_code = ft_atoi(args[1]) % 256;
+		*exit_code = ft_atol(args[1]) % 256;
 		cleanup_before_exit(cleanup);
 		exit(*exit_code);
 	}

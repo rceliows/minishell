@@ -7,8 +7,8 @@ static int	argv_push(char ***argvp, int *count, const char *s)
 	char	*dup;
 
 	i = *count;
-	nv = ft_realloc(*argvp, (size_t)(*count) * sizeof (char *), \
-				(size_t)(i + 2) * sizeof (char *));
+	nv = ft_realloc(*argvp, (size_t)(*count) * sizeof(char *),
+				(size_t)(i + 2) * sizeof(char *));
 	if (!nv)
 		return (-1);
 	nv[i] = NULL;
@@ -16,7 +16,7 @@ static int	argv_push(char ***argvp, int *count, const char *s)
 		dup = ft_strdup(s);
 	else
 		dup = ft_strdup("");
-	if (! dup)
+	if (!dup)
 		return (-1);
 	nv[i] = dup;
 	*count = i + 1;

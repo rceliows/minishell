@@ -33,7 +33,7 @@ int	handle_single_builtin(t_interpreter *it, t_env_hash *env_hash,
 	setup_signals();
 	if (it->cmd->redir)
 	{
-		if (! dup_standards_in_out(&saved_stdin, &saved_stdout, exit_code))
+		if (!dup_standards_in_out(&saved_stdin, &saved_stdout, exit_code))
 			return (1);
 		redir_applied = 1;
 		apply_redirections(it, cleanup);

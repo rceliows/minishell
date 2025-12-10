@@ -3,7 +3,7 @@
 t_env_hash	*copy_envp(char **envp)
 {
 	t_env_hash	*env_hash;
-	int			i;
+	size_t		i;
 
 	env_hash = malloc(sizeof(t_env_hash));
 	if (!env_hash)
@@ -21,7 +21,7 @@ t_env_hash	*copy_envp(char **envp)
 }
 
 static void	fill_envp_array_from_bucket(t_env_entry *current, char **envp_array,
-				int *j, int count_limit)
+				size_t *j, size_t count_limit)
 {
 	while (current && *j < count_limit)
 	{
@@ -40,8 +40,8 @@ char	**hash_table_to_envp_array(t_env_hash *env_hash)
 {
 	char		**envp_array;
 	t_env_entry	*current;
-	int			i;
-	int			j;
+	size_t		i;
+	size_t		j;
 
 	if (!env_hash || env_hash->count == 0)
 		return (create_empty_envp_array());
@@ -50,7 +50,7 @@ char	**hash_table_to_envp_array(t_env_hash *env_hash)
 		return (NULL);
 	j = 0;
 	i = 0;
-	while (i < HASH_TABLE_SIZE && j < env_hash->count)
+	while (i < HASH_TABLE_SIZE && j < (size_t)env_hash->count)
 	{
 		current = env_hash->buckets[i];
 		fill_envp_array_from_bucket(current, envp_array, &j, env_hash->count);

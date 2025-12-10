@@ -47,8 +47,8 @@ static void	handle_signal_termination(int status,
 	{
 		if (!*quit_printed)
 		{
-            write(STDOUT_FILENO, "\n", 1);
-        	*quit_printed = 1;
+			write(STDOUT_FILENO, "\n", 1);
+			*quit_printed = 1;
 		}
 		*exit_code = 130;
 	}

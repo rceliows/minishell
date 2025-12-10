@@ -13,7 +13,7 @@ static void	print_env_entry(t_env_entry *entry)
 int	execute_env_hash(t_env_hash *env_hash)
 {
 	t_env_entry	*current;
-	int			i;
+	size_t		i;
 
 	if (!env_hash)
 		return (0);

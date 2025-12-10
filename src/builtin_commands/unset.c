@@ -1,7 +1,7 @@
 #include "../inc/main.h"
 
 static void	remove_entry(t_env_hash *env_hash, t_env_entry *current,
-		t_env_entry *prev, int placement)
+		t_env_entry *prev, unsigned int placement)
 {
 	if (prev)
 		prev->next = current->next;
@@ -15,9 +15,9 @@ static void	remove_entry(t_env_hash *env_hash, t_env_entry *current,
 
 static int	unset_env_variable(t_env_hash *env_hash, char *name)
 {
-	t_env_entry	*current;
-	t_env_entry	*prev;
-	int			placement;
+	t_env_entry		*current;
+	t_env_entry		*prev;
+	unsigned int	placement;
 
 	if (!env_hash || !name)
 		return (0);
@@ -33,7 +33,7 @@ static int	unset_env_variable(t_env_hash *env_hash, char *name)
 
 static int	is_valid_unset_identifier(char *name)
 {
-	int	i;
+	size_t	i;
 
 	if (!name || !*name)
 		return (0);
@@ -66,7 +66,7 @@ static int	process_single_unset_arg(char *arg, t_env_hash *envp)
 
 int	builtin_unset(char **args, t_env_hash *envp)
 {
-	int	i;
+	size_t	i;
 
 	if (!args[1])
 		return (0);

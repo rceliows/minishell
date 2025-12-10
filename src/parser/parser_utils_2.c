@@ -6,9 +6,7 @@ t_redir	*redir_new(t_redir_kind k, const char *arg)
 
 	r = ft_calloc(1, sizeof(*r));
 	if (!r)
-	{
 		return (NULL);
-	}
 	r->kind = k;
 	if (arg)
 		r->arg = ft_strdup(arg);

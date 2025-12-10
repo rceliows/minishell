@@ -12,10 +12,10 @@ static int	main_loop_hash(char *input, t_env_hash *env_hash,
 	if (*input)
 		add_history(input);
 	tokens = tokenize_line(input, env_hash, exit_code);
-	if (! tokens)
+	if (!tokens)
 		return (-1);
 	cmd = parse_commands(tokens);
-	if (! cmd)
+	if (!cmd)
 	{
 		free_tokens(tokens);
 		*exit_code = 2;

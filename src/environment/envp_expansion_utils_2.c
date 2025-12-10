@@ -1,8 +1,8 @@
 #include "../inc/main.h"
 
-int	advance_var(t_expand_context *ctx, int i)
+size_t	advance_var(t_expand_context *ctx, size_t i)
 {
-	int	j;
+	size_t	j;
 
 	if (ctx->input[i + 1] == '?')
 		return (i + 2);
@@ -29,11 +29,11 @@ char	*exit_code_str(int exit_code)
 	return (res);
 }
 
-static int	get_regular_var_len(t_expand_context *ctx, int start, int end)
+static size_t	get_regular_var_len(t_expand_context *ctx, size_t start, size_t end)
 {
 	char	*var_name;
 	char	*val;
-	int		len;
+	size_t	len;
 
 	var_name = ft_substr(ctx->input, start, end - start);
 	len = 0;
@@ -47,10 +47,10 @@ static int	get_regular_var_len(t_expand_context *ctx, int start, int end)
 	return (len);
 }
 
-int	calc_var_len(t_expand_context *ctx, int pos, int *new_pos)
+size_t	calc_var_len(t_expand_context *ctx, size_t pos, size_t *new_pos)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 
 	if (ctx->input[pos + 1] == '?')
 	{
@@ -66,11 +66,11 @@ int	calc_var_len(t_expand_context *ctx, int pos, int *new_pos)
 	return (get_regular_var_len(ctx, start, end));
 }
 
-int	calc_total_len(t_expand_context *ctx)
+size_t	calc_total_len(t_expand_context *ctx)
 {
-	int	i;
-	int	len;
-	int	new_pos;
+	size_t	i;
+	size_t	len;
+	size_t	new_pos;
 
 	i = 0;
 	len = 0;

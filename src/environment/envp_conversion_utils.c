@@ -1,6 +1,6 @@
 #include "../inc/main.h"
 
-static char	*allocate_and_copy_name(char *s, int len)
+static char	*allocate_and_copy_name(char *s, size_t len)
 {
 	char	*temp;
 	char	*name;
@@ -14,7 +14,7 @@ static char	*allocate_and_copy_name(char *s, int len)
 	return (name);
 }
 
-static char	*get_value_part(char *s, int start_value)
+static char	*get_value_part(char *s, size_t start_value)
 {
 	if (s[start_value])
 		return (ft_strdup(s + start_value));
@@ -23,8 +23,8 @@ static char	*get_value_part(char *s, int start_value)
 
 static int	extract_name_and_value(char *s, char **name, char **value)
 {
-	int	i;
-	int	start_value;
+	size_t	i;
+	size_t	start_value;
 
 	i = 0;
 	start_value = 0;

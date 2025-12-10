@@ -29,7 +29,7 @@ void	free_string_array(char **array, int num_cmds)
 
 void	free_split(char **split)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!split)

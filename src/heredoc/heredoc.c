@@ -2,15 +2,15 @@
 
 int	run_as_shell_script(char *path, char **args, char **env)
 {
-	int		i;
-	int		j;
-	int		argc;
+	size_t	i;
+	size_t	j;
+	size_t	argc;
 	char	**sh_argv;
 
 	argc = 0;
 	while (args[argc])
 		argc++;
-	sh_argv = (char **)malloc(sizeof (char *) * (argc + 2));
+	sh_argv = (char **)malloc(sizeof(char *) * (argc + 2));
 	if (!sh_argv)
 		return (0);
 	i = 0;

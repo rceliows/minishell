@@ -2,7 +2,7 @@
 
 static int	confirm_print_newline(char *argv)
 {
-	int	i;
+	size_t	i;
 
 	i = 1;
 	if (!argv)
@@ -24,8 +24,8 @@ static int	confirm_print_newline(char *argv)
 void	execute_echo_hash(char **args,
 		int *exit_code, t_env_hash *env_hash)
 {
-	int	i;
-	int	newline;
+	size_t	i;
+	int		newline;
 
 	(void)exit_code;
 	(void)env_hash;

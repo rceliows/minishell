@@ -28,7 +28,7 @@ int		cleanup_and_exit(char *prompt, int exit_code);
 /* Process management utilities */
 pid_t	*allocate_pids_array(t_pipex *data);
 
-/* Free memory utils*/
+/* Free memory utils */
 void	free_split(char **arr);
 void	free_tokens(t_token *t);
 void	free_cmds(t_cmd *c);

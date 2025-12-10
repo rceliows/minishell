@@ -4,7 +4,7 @@ int	find_cmd_len(t_cmd *cmd)
 {
 	int	cmd_count;
 
-	if (! cmd)
+	if (!cmd)
 		return (0);
 	cmd_count = 0;
 	while (cmd)

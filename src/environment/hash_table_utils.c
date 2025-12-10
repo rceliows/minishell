@@ -34,7 +34,7 @@ t_env_entry	*create_new_env_entry_direct(char *name, char *value)
 	return (new_entry);
 }
 
-void	add_to_bucket(t_env_hash *envp, t_env_entry *new_entry, int placement)
+void	add_to_bucket(t_env_hash *envp, t_env_entry *new_entry, unsigned int placement)
 {
 	t_env_entry	*current;
 
@@ -52,10 +52,10 @@ void	add_to_bucket(t_env_hash *envp, t_env_entry *new_entry, int placement)
 }
 
 t_env_entry	*find_entry_to_remove(t_env_hash *env_hash, char *name,
-				int placement, t_env_entry **prev)
+				unsigned int placement, t_env_entry **prev)
 {
 	t_env_entry	*current;
-	int			name_len;
+	size_t		name_len;
 
 	current = env_hash->buckets[placement];
 	*prev = NULL;
