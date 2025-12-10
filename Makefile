@@ -84,7 +84,7 @@ all:			$(NAME)
 
 $(NAME):		$(LIBFT) $(OBJ)
 			@echo "Linking $(NAME)..."
-			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LDFLAGS) -o $(NAME)
 			@echo "Build complete!"
 
 # Check if libft directory exists, if not clone it
