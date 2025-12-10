@@ -299,8 +299,8 @@ valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./minishell
 
 ## 👥 Authors
 
-- [Your Name] - [Your GitHub](https://github.com/yourusername)
-- [Collaborator Name] - [Collaborator GitHub](https://github.com/collaborator)
+- Robert Celiowski - https://github.com/rceliows
+- Daniel Robert - https://github.com/drobert
 
 ## 📝 License
 
