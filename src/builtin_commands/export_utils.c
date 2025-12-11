@@ -4,6 +4,11 @@ void	print_export_entry(t_env_entry *entry)
 {
 	char	*value;
 
+	if (!entry->has_value)
+	{
+		printf("declare -x %s\n", entry->name);
+		return;
+	}
 	value = entry->value;
 	if (!value)
 		value = "";
