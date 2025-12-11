@@ -26,6 +26,18 @@ static int	process_export_with_value(char *arg, t_env_hash *envp)
 	}
 }
 
+static int	process_export_without_value(char *arg, t_env_hash *envp)
+{
+	if (is_valid_identifier(arg))
+		return (set_env_variable_with_flag(envp, arg, NULL, 0));
+	else
+	{
+		write_atomic_error("minishell: export: '", arg,
+			"': not a valid identifier\n");
+		return (0);
+	}
+}
+
 static int	process_single_export_arg(char *arg, t_env_hash *envp)
 {
 	char	*equals_pos;
@@ -34,7 +46,7 @@ static int	process_single_export_arg(char *arg, t_env_hash *envp)
 	if (equals_pos)
 		return (process_export_with_value(arg, envp));
 	else
-		return (0);
+		return (process_export_without_value(arg, envp));
 }
 
 int	builtin_export(char **args, t_env_hash *envp, int *exit_code)

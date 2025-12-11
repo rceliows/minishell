@@ -16,7 +16,7 @@ static void	cleanup_failed_entry(t_env_entry *new_entry)
 	free(new_entry);
 }
 
-t_env_entry	*create_new_env_entry_direct(char *name, char *value)
+t_env_entry	*create_new_env_entry_direct_with_flag(char *name, char *value, int has_value)
 {
 	t_env_entry	*new_entry;
 
@@ -25,6 +25,7 @@ t_env_entry	*create_new_env_entry_direct(char *name, char *value)
 		return (NULL);
 	new_entry->name = ft_strdup(name);
 	new_entry->value = get_safe_value_for_entry(value);
+	new_entry->has_value = has_value;
 	new_entry->next = NULL;
 	if (!new_entry->name || !new_entry->value)
 	{
@@ -32,6 +33,11 @@ t_env_entry	*create_new_env_entry_direct(char *name, char *value)
 		return (NULL);
 	}
 	return (new_entry);
+}
+
+t_env_entry	*create_new_env_entry_direct(char *name, char *value)
+{
+	return (create_new_env_entry_direct_with_flag(name, value, 1));
 }
 
 void	add_to_bucket(t_env_hash *envp, t_env_entry *new_entry, unsigned int placement)

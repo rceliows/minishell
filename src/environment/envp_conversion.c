@@ -23,9 +23,17 @@ t_env_hash	*copy_envp(char **envp)
 static void	fill_envp_array_from_bucket(t_env_entry *current, char **envp_array,
 				size_t *j, size_t count_limit)
 {
+	char	*env_string;
+
 	while (current && *j < count_limit)
 	{
-		envp_array[*j] = create_env_string(current);
+		env_string = create_env_string(current);
+		if (!env_string)
+		{
+			current = current->next;
+			continue;
+		}
+		envp_array[*j] = env_string;
 		if (!envp_array[*j])
 		{
 			free_string_array(envp_array, *j);

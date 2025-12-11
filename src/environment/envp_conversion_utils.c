@@ -59,6 +59,7 @@ t_env_entry	*extract_envp_value(char *s)
 		return (NULL);
 	current_envp->name = NULL;
 	current_envp->value = NULL;
+	current_envp->has_value = 1;
 	current_envp->next = NULL;
 	if (!extract_name_and_value(s, &name, &value))
 	{

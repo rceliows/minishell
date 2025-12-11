@@ -4,6 +4,8 @@ static void	print_env_entry(t_env_entry *entry)
 {
 	char	*value;
 
+	if (!entry->has_value)
+		return ;
 	value = entry->value;
 	if (!value)
 		value = "";

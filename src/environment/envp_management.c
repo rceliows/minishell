@@ -27,6 +27,7 @@ void	envp_add_last(t_env_hash *envp, t_env_entry *var)
 		new_entry->value = ft_strdup(var->value);
 	else
 		new_entry->value = ft_strdup("");
+	new_entry->has_value = var->has_value;
 	new_entry->next = NULL;
 	if (!new_entry->name || !new_entry->value)
 	{
@@ -70,6 +71,8 @@ char	*create_env_string(t_env_entry *entry)
 	char	*env_string;
 	char	*value_part;
 
+	if (!entry->has_value)
+		return (NULL);
 	if (entry->value)
 		value_part = entry->value;
 	else

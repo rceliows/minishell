@@ -11,11 +11,11 @@
 #  warning "Invalid HASH_TABLE_SIZE provided, using default value 127"
 # endif
 
-/* Environment hash table structure */
 typedef struct s_env_entry
 {
 	char				*name;
 	char				*value;
+	int					has_value;
 	struct s_env_entry	*next;
 }	t_env_entry;
 
@@ -56,6 +56,11 @@ void			add_to_bucket(t_env_hash *envp, t_env_entry *new_entry,
 					unsigned int placement);
 t_env_entry		*find_entry_to_remove(t_env_hash *env_hash,
 					char *name, unsigned int placement, t_env_entry **prev);
+t_env_entry		*create_new_env_entry_direct_with_flag(char *name,
+					char *value, int has_value);
+int				set_env_variable_with_flag(t_env_hash *env_hash,
+					char *name, char *value, int has_value);
+
 
 /* Convert between envp array and hash table */
 t_env_hash		*copy_envp(char **envp);
