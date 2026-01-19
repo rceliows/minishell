@@ -300,7 +300,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes ./minishell
 ## 👥 Authors
 
 - Robert Celiowski - https://github.com/rceliows
-- Daniel Robert - https://github.com/drobert
+- Daniel Robert - https://github.com/damiensrobert1
 
 ## 📝 License
 
